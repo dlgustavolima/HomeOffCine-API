@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: homeoffcine-api
+  labels:
+    app: homeoffcine-api
+spec:
+  containers:
+  - name: homeoffcine-api
+    image: dlgustavolima/homeoffcine-api:latest
+    env:
+    - name: ASPNETCORE_ENVIRONMENT
+      value: Development
+    - name: CUSTOMCONNSTR_DefaultConnection
+      value: "Server=database-service;Database=HomeOffCineAPI;User Id=sa;Password=1q2w3e4r@#$;MultipleActiveResultSets=true;TrustServerCertificate=True"
+    - name: AppSettings__DatabaseType
+      value: SqlServer
+    - name: "USE_HTTPS_REDIRECTION"
+      value: "false"
+    ports:
+    - containerPort: 81
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always

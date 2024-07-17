@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/HomeOffCine/FileContentIndex/b7b030d8-c043-45a8-8791-a9ba3bfe7be3.vsidx
+/src/HomeOffCine.Api/bin/Debug/net8.0
+/src/HomeOffCine.Api/obj
+/.vs/HomeOffCine/v17/.suo
+/src/HomeOffCine.Business/bin/Debug/net8.0
+/src/HomeOffCine.Business/obj
+/src/HomeOffCine.Infra/bin/Debug/net8.0
+/src/HomeOffCine.Infra/obj
+/src/HomeOffCine.ApiImages

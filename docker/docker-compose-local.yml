@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+
+  mvc:
+    image: dlgustavolima/homeoffcine-api:latest
+    container_name: HomeOffCine-api
+    build:
+      context: ../src
+      dockerfile: HomeOffCine.Api/Dockerfile 
+    restart: always 
+    ports:
+      - 5000:8080
+      - 5001:8081
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=HomeOffCineApi;User Id=sa;Password=1q2w3e4r@#$;MultipleActiveResultSets=true;TrustServerCertificate=True;
+      - ASPNETCORE_URLS=http://+:8080
+    depends_on:
+      - sqlserver
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: HomeOffCine-API-sqlserver
+    environment:
+      SA_PASSWORD: "1q2w3e4r@#$"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+      MSSQL_USER: sa
+    ports:
+      - "1433:1433"
